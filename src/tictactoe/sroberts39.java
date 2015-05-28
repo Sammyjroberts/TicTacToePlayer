@@ -430,14 +430,31 @@ public class sroberts39 extends Player {
         Scanner sc = new Scanner(System.in);
         boolean won = false;
         int move = 1;
-        while(!won)
+        String winner = "";
+        while(!won && move != 11)
         {
             System.out.println(test.toString());
             System.out.println("Your turn: ");
             test.setToken(test.XCHAR, new Coordinate(sc.nextInt()));
             move++;
-            test.setToken(test.OCHAR, instance.makeMove(move, test));
-            move++;
+            won = test.winner();
+            winner = "x";
+            if(!won)
+            {
+                test.setToken(test.OCHAR, instance.makeMove(move, test));
+                move++;
+                won = test.winner();
+                winner = "o";
+            }
+        }
+        System.out.println(test.toString());
+        if(move < 11)
+        {
+            System.out.println("Winner: " + winner + " on turn " + move);
+        }
+        else
+        {
+            System.out.println("Tie");
         }
     }
 
