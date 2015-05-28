@@ -1,0 +1,237 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  </head>
+  <body>
+	  <hr />
+	  <h4>Summary</h4>
+	  <p> TicTacToe is an engine for testing tictactoe player strategies, new players need to extend Player. The program serves as a platform, for demonstrating basic principles of Object Oriented Programmer (OOP):
+	  Inheritance, Polymorphism and Dynamic Binding. Assignment also serves as a teaching aid to teach someone how to think. Writing an optimal player is not easy. You will have to think about it, test various strategies and sleep on it. It is a good idea to think about how to write your program before going to bed. In the morning have a tablet of paper nearby so you can write any ideas that come to mind while sleeping. <strong>Nota Bene</strong> TicTacToe your player needs to play with this engine on submit, but you do have to make some changes in Main methods to get program to compile, and you may want to explore various debug modes.</p>
+
+      <a name="keyLinks"></a>
+      <h4>Key Tic Tac Toe links</h4>
+      <ul>
+      <li><a href="/faculty/tdedonno/cs4b/TicTacToe">Main Index</a> |
+      Tic Tac <a href="/faculty/tdedonno/cs4b/TicTacToe/doc/">Toe Programmers Interface</a>
+      | <a href="#gettingStarted">Steps in getting started</a> |
+  | Download Tic Tac <a href="/faculty/tdedonno/cs4b/TicTacToe/TicTacToe.zip">Toe Source Code</a>
+      <li> Viewgraphs<a href="/faculty/tdedonno/cs4b/TicTacToe/tictactoe.pdf"> in PDF Format</a> | 
+  Tic<a href="/faculty/tdedonno/cs4aFall08/tictactoe/TicTacToe/example1.html">TacToe Java Applet </a>Part of JDK1.5      
+      <li><a href="http://cim.saddleback.edu/~tdedonno/submit">Submit</a> Your Player using standard submit command,
+        Make sure player name (aka java file Name is <span title="Saddleback User Name">SBUsername</span>.java<sup>*</sup>)
+      </ul>
+      <h4 id="gettingStarted">Getting Started, Creating a New Player</h4>
+      <ol>
+          <li>Write a basic Random player that extends Player</li>
+          <li>All extended player classes, must have only a default null constructor, which calls super( realNamewTerm, avatar), </li>
+          <li>where RealNamewTerm is your real name with current term (such as Joe Student Sp14);</li>
+          <li>avatar is your combat name. </li>
+          <li>You have only one default null constructor, no other constructors.
+          <li>You will need to implement all Abstract methods inside of Player</li>
+          <li>Modify goForIt.java so that your random player and only your random player interfaces to the engine, initially random player  plays against itself</li>
+          <li>You may need to comment out players, that you don't have</li>
+          <li>Formulate a strategy to create a better player (i.e., sbusername ), create it, and then test it against your random player</li>
+          <li>Your <a href="http://cim.saddleback.edu/~tdedonno/submit/">submitted</a> player must be your  Saddleback Username, both class name and file name must be Saddleback Username</li>
+          <li>If you have helper classes make sure they are friendly, you can only submit one file i.e., sbusername.java</li>
+  </ol>
+        <hr />
+  <a name="programDocumentation"></a>
+  <h3>Program Documentation</h3>
+  <h4>Brief Class Summary...</h4>
+  <ul>
+    <li>
+      <p>Coordinate (row, col duplet helpers) </p>
+    </li>
+    <li>
+      <p>Board (defines the board MAXROWS x MAXCOLS ) </p>
+    </li>
+    
+    <li>
+      <span title="Saddleback User Name">SBUsername</span><sup>*</sup> extends Player extends VitalStatistics<br />
+      It is recommended you write players in this order...
+      <ol>
+        <li>First level Player: pick any square (even one occupied)</li>
+        <li>Second Level Player: Find an available square (PlayerNext)</li>
+        <li>Third Level Player: Look for 2 in a row to win Game or block 2 in a row by opponents</li>
+        <li>Fourth-Final Level: Solve the game, but use previous ones for system testing.</li>
+      </ol>
+      * Only your final submit player should be class SBUserName, where SBUserName is your Saddleback User Name,
+      (aka First Initial, Last Name, Unique Number; submit login name).
+      <li><p>PerformanceRating  creates a performance Rating, also stores long representing game state of last loss</p>
+    </li>
+    <li>
+      <p>TicTacToe Engine, three simulator headToHead, tournament (prints gameState), and singleUserTestMode </p>
+    </li>
+    <li>
+      <p>@deprecated Message extends MessageTemplate, update later on to TicTacToeEvent </p>
+    </li>
+  </ul>
+  <h2>More Detailed Class Summary... all classes override toString() </h2>
+  <h3>Coordinate (row, col duplet) </h3>
+  <ul>
+    <li>
+      <p>Methods for operating on a row, col duplet </p>
+    </li>
+    <li>
+      <p>Supports Singletons row*Board.MAXCOLS + col </p>
+      <pre>Board has these singleton values...
+0 | 1 | 2
+3 | 4 | 5
+6 | 7 | 8
+Note games state recorded values are singleton values plus 1.
+      </pre>
+    </li>
+  </ul>
+  <h3>Board </h3>
+  <ul>
+    <li>
+      <p>Defines char[][] board MAXROWS x MAXCOLS </p>
+    </li>
+    <li>
+      <p>EMPTYCHAR, XCHAR and OCHAR </p>
+    </li>
+    <li>
+      <p>Public board[ MAXROWS ][ MAXCOLS ] </p>
+    </li>
+    <li>
+      <p>Could make board and tokens an enum </p>
+    </li>
+    <li>
+      <p>Contains toInt, toBoard, winner, </p>
+    </li>
+    <li>
+      <p>emptyToken, setToken, getToken, Token element of EMPTYCHAR, XCHAR and OCHAR</p>
+    </li>
+  </ul>
+  <hr>
+        
+  <h3>Deprecated  Messages, later TicTacToeEvent </h3>
+  <ul>
+    <li>
+      <p>MessageTemplate defines fields and autthentication </p>
+    </li>
+    <li>
+      Consists of msgID (integer),
+    details, classPtr </li>
+    <li>
+      <p>Message defines msgID constants, and other methods Specific to game, msgID constants
+      will always be available.</p>
+    </li>
+  </ul>
+  <p>msgID IDNEWGAME first message sent to a player </p>
+  <p>player must set msg to either IDYES or IDNO, IDYES play another game</p>
+  <p>msg.details = XCHAR or OCHAR depending upon which token the player has been
+    assigned. </p>
+  <p>&nbsp; </p>
+  <p>then engines sends message ID1..ID9 where ID1 is first move of game; ID2 is
+    second move, </p>
+  <p>&nbsp; </p>
+  <p>ID1 - ID9 will always be sequential; each value incremented by 1. First move will always be 1 (aka Message.ID1) </p>
+  <p>&nbsp; </p>
+  <p>as soon as a winner is found system sends IDWON and IDLOSS to respective
+    players;</p>
+  <p> on tie after ID9, engines sends IDTIE to both players </p>
+  <p>TicTacToe@ PlayerType can authenticate messages </p>
+  <p>Players can checkAuthentication </p>
+  <hr>
+  <h3>VitalStatistics </h3>
+  <p>Declares the Strings... </p>
+  <ul>
+    <li>
+      <p>RealName Creator or Programmers name inlcuding Term you are taking CS4B (i.e., Spring14)</p>
+    </li>
+    <li>
+      <p>Avatar AlterEgo CombatName </p>
+    </li>
+  </ul>
+  <p>Realname, and alterego  must be set once at Instantiation;
+  </p>
+  <hr />
+        
+  <h3>Abstract Player extends VitalStatistics </h3>
+  <ul>
+    <li>
+      <p>getToken and setToken for Players current token either XCHAR or OCHAR  First move move=1 is always set to XCHAR</p>
+    </li>
+    <li>
+      <p>new players must implement...</p>
+      <ul>
+        <li>null constructor with call to base class two string constructor (i.e., super( realName, avatar ))      </li>
+        <li>Coordinate makeMove( int move, Board  b)</li>
+        <li> boolean newGame( String opponentName, char token (either XCHAR or 0CHAR)</li>
+        <li> String youWon( Board b )</li>
+        <li> String tie( Board b )</li>
+        <li>String youLost( Board b )</li>
+      </ul>
+    </li>
+    <li> You also have two methods in player badMove and badMoveOpponent that your player should override
+  </ul>
+  <hr />
+  <h3>PlayerABC extends Player </h3>
+  <p> Player created by previous students, current students need to name player using their sbUserName</p>
+        
+  <p>All other times just return you next guess as coordinate </p>
+  <p>Board is the current board with X, O, and _ defined by XHAR, OCHAR and EMPTYCHAR </p>
+  <hr>
+  <h3>PerformanceRating </h3>
+  <p>Keeps track of the win,losses and ties in a series, </p>
+  <p>Doesn't remember statistics between different tournaments; Produces a Performance
+    Rating based on play against PlayerRandom </p>
+  <hr />
+  <h3>TicTacToe </h3>
+        
+  <p>Main engine </p>
+  <p>To use... </p>
+  <p>TicTacToe tic = new TicTacToe( ); </p>
+  <p>Players have one of two options for playing a tournament, </p>
+  <p>Tic.singleUserTestMode( new PlayerName() ); </p>
+  <p>Or </p>
+  <p>Tic. headToHead( new Player1(), new Player2() ); </p>
+  <p>note you are passing Player pointers to TicTacToe, so one could instantiate
+    a player object and pass it to tic.</p>
+  <p>Player PlayerXYZ = new PlayerXYZ();</p>
+  <p>tic.singleUserTestMode( PlayerXYZ );</p>
+  <p>tic.headToHead( PlayerXYZ, PlayerXYZ );  </p>
+  <p>Internally TicTacToe </p>
+        <a name="javaDoc"></a>
+  <h3>Quick JavaDoc Intro</h3>
+        
+  <ul>
+    <li>
+    Javadoc is just a modified comment with an beginning start /** not /*</li>
+    <li> You place comment right before the public method, property or class</li>
+    <li>
+      you can put html code inside comment
+    </li>
+    <li>
+    comment ends with a standard star slash</li>
+  </ul>
+  <h3>Some popular javadoc annotations... </h3>
+  <ol>
+    <li>
+      <p>@author </p>
+    </li>
+    <li>
+      <p>@version </p>
+    </li>
+    <li>
+      <p>@return </p>
+    </li>
+    <li>
+      <p>@param </p>
+    </li>
+    <li>
+      <p>@see </p>
+    </li>
+  </ol>
+  <p>need author option to have author in API </p>
+  <p> param variable must match variable in argument list </p>
+        javadoc creates the javaAPI for all Java Files in a Directory
+  </body>
+</html>
